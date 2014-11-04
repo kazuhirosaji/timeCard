@@ -22,10 +22,26 @@
                                     <!--2014-11-04 14:29:23 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-4w-hyP">
+                                <rect key="frame" x="217" y="455" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7KS-Ny-kcm">
+                                <rect key="frame" x="337" y="455" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="kpG-xr-Mcz" secondAttribute="centerX" id="0bN-7a-2W0"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ofR-4w-hyP" secondAttribute="bottom" constant="115" id="0qf-Wy-Fh9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7KS-Ny-kcm" secondAttribute="bottom" constant="115" id="TMm-Dd-jhI"/>
+                            <constraint firstAttribute="centerX" secondItem="7KS-Ny-kcm" secondAttribute="centerX" constant="-60" id="XiG-5b-PBi"/>
+                            <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstAttribute="centerY" secondItem="kpG-xr-Mcz" secondAttribute="centerY" id="s1q-B6-6Up"/>
                         </constraints>
                     </view>
