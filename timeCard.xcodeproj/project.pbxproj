@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F821A090ECD0059D042 /* AppDelegate.swift */; };
+		32367F851A090ECD0059D042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F841A090ECD0059D042 /* ViewController.swift */; };
+		32367F881A090ECD0059D042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32367F861A090ECD0059D042 /* Main.storyboard */; };
+		32367F8A1A090ECD0059D042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32367F891A090ECD0059D042 /* Images.xcassets */; };
+		32367F8D1A090ECD0059D042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32367F8B1A090ECD0059D042 /* LaunchScreen.xib */; };
+		32367F991A090ECD0059D042 /* timeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F981A090ECD0059D042 /* timeCardTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32367F931A090ECD0059D042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32367F751A090ECD0059D042 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32367F7C1A090ECD0059D042;
+			remoteInfo = timeCard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32367F7D1A090ECD0059D042 /* timeCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timeCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32367F811A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32367F821A090ECD0059D042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32367F841A090ECD0059D042 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		32367F871A090ECD0059D042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32367F891A090ECD0059D042 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		32367F8C1A090ECD0059D042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		32367F921A090ECD0059D042 /* timeCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timeCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32367F971A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32367F981A090ECD0059D042 /* timeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCardTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32367F7A1A090ECD0059D042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32367F8F1A090ECD0059D042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32367F741A090ECD0059D042 = {
+			isa = PBXGroup;
+			children = (
+				32367F7F1A090ECD0059D042 /* timeCard */,
+				32367F951A090ECD0059D042 /* timeCardTests */,
+				32367F7E1A090ECD0059D042 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32367F7E1A090ECD0059D042 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32367F7D1A090ECD0059D042 /* timeCard.app */,
+				32367F921A090ECD0059D042 /* timeCardTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32367F7F1A090ECD0059D042 /* timeCard */ = {
+			isa = PBXGroup;
+			children = (
+				32367F821A090ECD0059D042 /* AppDelegate.swift */,
+				32367F841A090ECD0059D042 /* ViewController.swift */,
+				32367F861A090ECD0059D042 /* Main.storyboard */,
+				32367F891A090ECD0059D042 /* Images.xcassets */,
+				32367F8B1A090ECD0059D042 /* LaunchScreen.xib */,
+				32367F801A090ECD0059D042 /* Supporting Files */,
+			);
+			path = timeCard;
+			sourceTree = "<group>";
+		};
+		32367F801A090ECD0059D042 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32367F811A090ECD0059D042 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32367F951A090ECD0059D042 /* timeCardTests */ = {
+			isa = PBXGroup;
+			children = (
+				32367F981A090ECD0059D042 /* timeCardTests.swift */,
+				32367F961A090ECD0059D042 /* Supporting Files */,
+			);
+			path = timeCardTests;
+			sourceTree = "<group>";
+		};
+		32367F961A090ECD0059D042 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32367F971A090ECD0059D042 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32367F7C1A090ECD0059D042 /* timeCard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32367F9C1A090ECD0059D042 /* Build configuration list for PBXNativeTarget "timeCard" */;
+			buildPhases = (
+				32367F791A090ECD0059D042 /* Sources */,
+				32367F7A1A090ECD0059D042 /* Frameworks */,
+				32367F7B1A090ECD0059D042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = timeCard;
+			productName = timeCard;
+			productReference = 32367F7D1A090ECD0059D042 /* timeCard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		32367F911A090ECD0059D042 /* timeCardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32367F9F1A090ECD0059D042 /* Build configuration list for PBXNativeTarget "timeCardTests" */;
+			buildPhases = (
+				32367F8E1A090ECD0059D042 /* Sources */,
+				32367F8F1A090ECD0059D042 /* Frameworks */,
+				32367F901A090ECD0059D042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32367F941A090ECD0059D042 /* PBXTargetDependency */,
+			);
+			name = timeCardTests;
+			productName = timeCardTests;
+			productReference = 32367F921A090ECD0059D042 /* timeCardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32367F751A090ECD0059D042 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = kazuhirosaji;
+				TargetAttributes = {
+					32367F7C1A090ECD0059D042 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					32367F911A090ECD0059D042 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 32367F7C1A090ECD0059D042;
+					};
+				};
+			};
+			buildConfigurationList = 32367F781A090ECD0059D042 /* Build configuration list for PBXProject "timeCard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32367F741A090ECD0059D042;
+			productRefGroup = 32367F7E1A090ECD0059D042 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32367F7C1A090ECD0059D042 /* timeCard */,
+				32367F911A090ECD0059D042 /* timeCardTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32367F7B1A090ECD0059D042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32367F881A090ECD0059D042 /* Main.storyboard in Resources */,
+				32367F8D1A090ECD0059D042 /* LaunchScreen.xib in Resources */,
+				32367F8A1A090ECD0059D042 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32367F901A090ECD0059D042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32367F791A090ECD0059D042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32367F851A090ECD0059D042 /* ViewController.swift in Sources */,
+				32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32367F8E1A090ECD0059D042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32367F991A090ECD0059D042 /* timeCardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32367F941A090ECD0059D042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32367F7C1A090ECD0059D042 /* timeCard */;
+			targetProxy = 32367F931A090ECD0059D042 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		32367F861A090ECD0059D042 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32367F871A090ECD0059D042 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32367F8B1A090ECD0059D042 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32367F8C1A090ECD0059D042 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32367F9A1A090ECD0059D042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		32367F9B1A090ECD0059D042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32367F9D1A090ECD0059D042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = timeCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		32367F9E1A090ECD0059D042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = timeCard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		32367FA01A090ECD0059D042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = timeCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/timeCard.app/timeCard";
+			};
+			name = Debug;
+		};
+		32367FA11A090ECD0059D042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = timeCardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/timeCard.app/timeCard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32367F781A090ECD0059D042 /* Build configuration list for PBXProject "timeCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32367F9A1A090ECD0059D042 /* Debug */,
+				32367F9B1A090ECD0059D042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32367F9C1A090ECD0059D042 /* Build configuration list for PBXNativeTarget "timeCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32367F9D1A090ECD0059D042 /* Debug */,
+				32367F9E1A090ECD0059D042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32367F9F1A090ECD0059D042 /* Build configuration list for PBXNativeTarget "timeCardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32367FA01A090ECD0059D042 /* Debug */,
+				32367FA11A090ECD0059D042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32367F751A090ECD0059D042 /* Project object */;
+}
