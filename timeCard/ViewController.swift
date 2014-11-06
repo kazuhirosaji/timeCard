@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var checkTimeLabel: UILabel!
+
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
         checkTimeLabel.text = "start: " + currentTime
@@ -33,9 +35,22 @@ class ViewController: UIViewController {
         return dateFormatter.stringFromDate(now)
     }
     
+    func getCurrentDateStr()->String {
+        let now = NSDate()
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .MediumStyle
+        println(dateFormatter.stringFromDate(now))
+        return dateFormatter.stringFromDate(now)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        dateLabel.text = getCurrentDateStr()
     }
 
     override func didReceiveMemoryWarning() {

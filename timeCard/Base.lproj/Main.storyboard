@@ -46,21 +46,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yh4-QP-fFA">
+                                <rect key="frame" x="282" y="103" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="kpG-xr-Mcz" secondAttribute="centerX" id="0bN-7a-2W0"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ofR-4w-hyP" secondAttribute="bottom" constant="115" id="0qf-Wy-Fh9"/>
+                            <constraint firstAttribute="centerX" secondItem="yh4-QP-fFA" secondAttribute="centerX" id="1lX-Ob-hx8"/>
                             <constraint firstAttribute="centerX" secondItem="WLP-Mk-qkf" secondAttribute="centerX" id="NJr-by-beq"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7KS-Ny-kcm" secondAttribute="bottom" constant="115" id="TMm-Dd-jhI"/>
                             <constraint firstAttribute="centerX" secondItem="7KS-Ny-kcm" secondAttribute="centerX" constant="-60" id="XiG-5b-PBi"/>
+                            <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="yh4-QP-fFA" secondAttribute="bottom" constant="23" id="g05-Ds-r3L"/>
                             <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="kbA-pa-Dh9"/>
                             <constraint firstAttribute="centerY" secondItem="kpG-xr-Mcz" secondAttribute="centerY" id="s1q-B6-6Up"/>
+                            <constraint firstItem="yh4-QP-fFA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="83" id="xMg-Eh-iat"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="checkTimeLabel" destination="WLP-Mk-qkf" id="tcM-r0-1Yd"/>
+                        <outlet property="dateLabel" destination="yh4-QP-fFA" id="ede-QX-dDC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
