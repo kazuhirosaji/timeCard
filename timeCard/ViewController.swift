@@ -12,11 +12,25 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var checkTimeLabel: UILabel!
     @IBAction func startWork(sender: AnyObject) {
-        checkTimeLabel.text = "working"
+        var currentTime:String = getCurrentTimeStr();
+        checkTimeLabel.text = "start: " + currentTime
     }
     
     @IBAction func finishWork(sender: AnyObject) {
-        checkTimeLabel.text = "finished"
+        var currentTime:String = getCurrentTimeStr();
+        checkTimeLabel.text = "finish: " + currentTime
+    }
+    
+    func getCurrentTimeStr()->String {
+        let now = NSDate()
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        
+        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.dateStyle = .NoStyle
+        println(dateFormatter.stringFromDate(now))
+        return dateFormatter.stringFromDate(now)
     }
     
     override func viewDidLoad() {
