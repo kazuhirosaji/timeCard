@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var checkTimeLabel: UILabel!
+    @IBAction func startWork(sender: AnyObject) {
+        checkTimeLabel.text = "working"
+    }
+    
+    @IBAction func finishWork(sender: AnyObject) {
+        checkTimeLabel.text = "finished"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
