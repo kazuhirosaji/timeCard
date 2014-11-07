@@ -10,17 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var finishTime: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var checkTimeLabel: UILabel!
 
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        checkTimeLabel.text = "start: " + currentTime
+        startTime.text = "start: " + currentTime
     }
     
     @IBAction func finishWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        checkTimeLabel.text = "finish: " + currentTime
+        finishTime.text = "finish: " + currentTime
     }
     
     func getCurrentTimeStr()->String {
