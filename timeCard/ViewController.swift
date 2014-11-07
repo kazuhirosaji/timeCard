@@ -16,12 +16,12 @@ class ViewController: UIViewController {
 
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        startTime.text = "start: " + currentTime
+        startTime.text = "出勤: " + currentTime
     }
     
     @IBAction func finishWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        finishTime.text = "finish: " + currentTime
+        finishTime.text = "退勤: " + currentTime
     }
     
     func getCurrentTimeStr()->String {
