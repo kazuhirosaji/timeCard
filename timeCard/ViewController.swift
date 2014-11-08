@@ -25,20 +25,6 @@ class ViewController: UIViewController {
         finishTime.text = "退勤: " + currentTime
     }
     
-    @IBAction func onEditTime(sender: UIDatePicker) {
-        println(sender.date)
-
-        let editTime = sender.date
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
-        
-        dateFormatter.timeStyle = .MediumStyle
-        dateFormatter.dateStyle = .NoStyle
-        println(dateFormatter.stringFromDate(editTime))
-        dateLabel.text = dateFormatter.stringFromDate(editTime)
-    }
-
     func getCurrentTimeStr()->String {
         let now = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -67,7 +53,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         dateLabel.text = getCurrentDateStr()
-        datePicker.datePickerMode = UIDatePickerMode.Time
     }
 
     override func didReceiveMemoryWarning() {
