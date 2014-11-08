@@ -1,5 +1,6 @@
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
+Breakpoints_v2.x
 !*.xcworkspace/contents.xcworkspacedata
 *.xcodeproj/xcuserdata/*
 .DS_Store
