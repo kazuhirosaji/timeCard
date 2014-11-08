@@ -26,7 +26,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditTime(sender: UIDatePicker) {
-        println(datePicker.description)
+        println(sender.date)
+
+        let editTime = sender.date
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        
+        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.dateStyle = .NoStyle
+        println(dateFormatter.stringFromDate(editTime))
+        dateLabel.text = dateFormatter.stringFromDate(editTime)
     }
 
     func getCurrentTimeStr()->String {
