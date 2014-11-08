@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -21,6 +22,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="436804163.68010902">
                                     <!--2014-11-04 14:29:23 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="onEditTime:" destination="vXZ-lx-hvc" eventType="valueChanged" id="snb-hb-6RS"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-4w-hyP">
                                 <rect key="frame" x="225" y="455" width="30" height="30"/>
@@ -73,12 +77,19 @@
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="yh4-QP-fFA" secondAttribute="bottom" constant="23" id="g05-Ds-r3L"/>
                             <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="kbA-pa-Dh9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kpG-xr-Mcz" secondAttribute="trailing" constant="124" id="qjD-78-tDr"/>
                             <constraint firstAttribute="centerY" secondItem="kpG-xr-Mcz" secondAttribute="centerY" id="s1q-B6-6Up"/>
                             <constraint firstItem="yh4-QP-fFA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="83" id="xMg-Eh-iat"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="qjD-78-tDr"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="yh4-QP-fFA" id="ede-QX-dDC"/>
+                        <outlet property="datePicker" destination="kpG-xr-Mcz" id="pGw-QX-RSZ"/>
                         <outlet property="finishTime" destination="yCU-TF-8RT" id="QhF-Yb-dTs"/>
                         <outlet property="startTime" destination="WLP-Mk-qkf" id="cBW-Mf-xTQ"/>
                     </connections>
