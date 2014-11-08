@@ -58,7 +58,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xoe-Xc-raC" kind="show" id="L3U-aP-3dr"/>
+                                    <segue destination="Xoe-Xc-raC" kind="show" identifier="finishTime" id="L3U-aP-3dr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo1-5i-heY">
@@ -67,7 +67,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xoe-Xc-raC" kind="show" id="9JM-QJ-KNf"/>
+                                    <segue destination="Xoe-Xc-raC" kind="show" identifier="startTime" id="9JM-QJ-KNf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,6 +167,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L3U-aP-3dr"/>
+        <segue reference="9JM-QJ-KNf"/>
     </inferredMetricsTieBreakers>
 </document>

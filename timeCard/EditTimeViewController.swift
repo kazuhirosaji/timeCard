@@ -14,6 +14,7 @@ class EditTImeViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    var param = false
     
     @IBAction func onEditTIme(sender: UIDatePicker) {
         let editTime = sender.date
