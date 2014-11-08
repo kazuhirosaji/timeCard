@@ -119,6 +119,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="437122237.04483098">
                                     <!--2014-11-08 06:50:37 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="onEditTIme:" destination="Xoe-Xc-raC" eventType="valueChanged" id="8Bn-ps-TWp"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hft-b7-ari">
                                 <rect key="frame" x="279" y="147" width="42" height="21"/>
@@ -136,7 +139,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="Hft-b7-ari" id="O1X-pj-NIx"/>
+                        <outlet property="dateLabel" destination="Hft-b7-ari" id="ZHS-4A-XuL"/>
                         <outlet property="datePicker" destination="3mX-Nv-ifI" id="nrW-Sa-Tw5"/>
                     </connections>
                 </viewController>
