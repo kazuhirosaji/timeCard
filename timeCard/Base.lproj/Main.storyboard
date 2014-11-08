@@ -62,6 +62,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Wv-HMc">
+                                <rect key="frame" x="385" y="175" width="30" height="30"/>
+                                <state key="normal" title="編集">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Xoe-Xc-raC" kind="presentation" id="vTS-5l-0Fp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo1-5i-heY">
+                                <rect key="frame" x="185" y="175" width="30" height="30"/>
+                                <state key="normal" title="編集">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Xoe-Xc-raC" kind="presentation" id="J48-GO-JPp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,6 +87,8 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ofR-4w-hyP" secondAttribute="bottom" constant="115" id="0qf-Wy-Fh9"/>
                             <constraint firstAttribute="centerX" secondItem="yh4-QP-fFA" secondAttribute="centerX" id="1lX-Ob-hx8"/>
                             <constraint firstAttribute="centerX" secondItem="yCU-TF-8RT" secondAttribute="centerX" constant="-100" id="4lN-7b-jvh"/>
+                            <constraint firstItem="jo1-5i-heY" firstAttribute="top" secondItem="WLP-Mk-qkf" secondAttribute="bottom" constant="7.5" id="ELo-a6-0If"/>
+                            <constraint firstAttribute="centerX" secondItem="3ah-Wv-HMc" secondAttribute="centerX" constant="-100" id="JAq-Vs-J7L"/>
                             <constraint firstItem="yCU-TF-8RT" firstAttribute="top" secondItem="yh4-QP-fFA" secondAttribute="bottom" constant="23" id="M8E-Lw-9Rb"/>
                             <constraint firstAttribute="centerX" secondItem="WLP-Mk-qkf" secondAttribute="centerX" constant="100" id="NJr-by-beq"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="7KS-Ny-kcm" secondAttribute="bottom" constant="115" id="TMm-Dd-jhI"/>
@@ -78,8 +98,10 @@
                             <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="kbA-pa-Dh9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kpG-xr-Mcz" secondAttribute="trailing" constant="124" id="qjD-78-tDr"/>
+                            <constraint firstItem="3ah-Wv-HMc" firstAttribute="top" secondItem="yCU-TF-8RT" secondAttribute="bottom" constant="7.5" id="rHb-m2-ENV"/>
                             <constraint firstAttribute="centerY" secondItem="kpG-xr-Mcz" secondAttribute="centerY" id="s1q-B6-6Up"/>
                             <constraint firstItem="yh4-QP-fFA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="83" id="xMg-Eh-iat"/>
+                            <constraint firstAttribute="centerX" secondItem="jo1-5i-heY" secondAttribute="centerX" constant="100" id="xfc-6t-Gqg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -98,5 +120,26 @@
             </objects>
             <point key="canvasLocation" x="380" y="269"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WpV-4F-9y4">
+            <objects>
+                <viewController id="Xoe-Xc-raC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fkX-uX-Zpu"/>
+                        <viewControllerLayoutGuide type="bottom" id="I0D-iN-jBn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nyE-yM-owe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWI-ur-5Tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="273"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="J48-GO-JPp"/>
+    </inferredMetricsTieBreakers>
 </document>
