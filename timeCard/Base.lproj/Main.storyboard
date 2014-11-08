@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5H8-Bg-JUi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -58,7 +58,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xoe-Xc-raC" kind="show" id="vTS-5l-0Fp"/>
+                                    <segue destination="Xoe-Xc-raC" kind="show" id="L3U-aP-3dr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jo1-5i-heY">
@@ -67,7 +67,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xoe-Xc-raC" kind="show" id="J48-GO-JPp"/>
+                                    <segue destination="Xoe-Xc-raC" kind="show" id="9JM-QJ-KNf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="269"/>
+            <point key="canvasLocation" x="2004" y="269"/>
         </scene>
         <!--EditT Ime View Controller-->
         <scene sceneID="WpV-4F-9y4">
@@ -142,28 +142,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWI-ur-5Tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882" y="273"/>
+            <point key="canvasLocation" x="2694" y="273"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="U0M-rd-A3B">
+        <scene sceneID="THd-Mq-Xre">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5H8-Bg-JUi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rJa-hZ-pI0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="imT-HG-Pfw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TBH-mW-tLK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="j3f-Ai-jg6"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="AG4-um-bzV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YHt-fA-n4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLh-UB-hga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="269"/>
+            <point key="canvasLocation" x="1192" y="269"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J48-GO-JPp"/>
+        <segue reference="L3U-aP-3dr"/>
     </inferredMetricsTieBreakers>
 </document>

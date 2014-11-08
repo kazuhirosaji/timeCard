@@ -13,6 +13,7 @@
 		32367F8A1A090ECD0059D042 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32367F891A090ECD0059D042 /* Images.xcassets */; };
 		32367F8D1A090ECD0059D042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32367F8B1A090ECD0059D042 /* LaunchScreen.xib */; };
 		32367F991A090ECD0059D042 /* timeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F981A090ECD0059D042 /* timeCardTests.swift */; };
+		32E286DB1A0E129000F3B4B0 /* EditTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		32367F921A090ECD0059D042 /* timeCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timeCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32367F971A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32367F981A090ECD0059D042 /* timeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCardTests.swift; sourceTree = "<group>"; };
+		32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		32367F7F1A090ECD0059D042 /* timeCard */ = {
 			isa = PBXGroup;
 			children = (
+				32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */,
 				32367F821A090ECD0059D042 /* AppDelegate.swift */,
 				32367F841A090ECD0059D042 /* ViewController.swift */,
 				32367F861A090ECD0059D042 /* Main.storyboard */,
@@ -214,6 +217,7 @@
 			files = (
 				32367F851A090ECD0059D042 /* ViewController.swift in Sources */,
 				32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */,
+				32E286DB1A0E129000F3B4B0 /* EditTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +409,7 @@
 				32367F9E1A090ECD0059D042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32367F9F1A090ECD0059D042 /* Build configuration list for PBXNativeTarget "timeCardTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				32367FA11A090ECD0059D042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
