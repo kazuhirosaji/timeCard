@@ -32,7 +32,6 @@ class EditTImeViewController: UIViewController {
         dateFormatter.timeStyle = .MediumStyle
         dateFormatter.dateStyle = .NoStyle
         println(dateFormatter.stringFromDate(editTime))
-        dateLabel.text = dateFormatter.stringFromDate(editTime)
         if (delegate != nil) {
             delegate!.mainViewEditTime(self, text: dateFormatter.stringFromDate(editTime))
         }
