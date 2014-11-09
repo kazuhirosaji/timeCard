@@ -53,6 +53,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         dateLabel.text = getCurrentDateStr()
+        
+        self.navigationItem.title = "TOP"
     }
 
     override func didReceiveMemoryWarning() {
