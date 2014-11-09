@@ -14,7 +14,7 @@ class EditTImeViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    var param = false
+    var isStartTime = false
     
     @IBAction func onEditTIme(sender: UIDatePicker) {
         let editTime = sender.date
@@ -31,6 +31,11 @@ class EditTImeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (isStartTime) {
+            dateLabel.text = "編集(出勤時間)";
+        } else {
+            dateLabel.text = "編集(退勤時間)";
+        }
         // Do any additional setup after loading the view, typically from a nib.
         datePicker.datePickerMode = UIDatePickerMode.Time
     }

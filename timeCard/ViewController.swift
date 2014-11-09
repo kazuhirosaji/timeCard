@@ -63,9 +63,12 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "startTime") {
+        if (segue.identifier != nil) {
+            println(segue.identifier!)
+        }
+        if (segue.identifier! == "startTime") {
             let vc: EditTImeViewController = segue.destinationViewController as EditTImeViewController
-            vc.param = true
+            vc.isStartTime = true
         }
     }
 
