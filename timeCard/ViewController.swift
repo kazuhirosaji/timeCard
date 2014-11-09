@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var finishTime: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    var duringEditStartTime = false
 
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
@@ -63,15 +64,24 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier != nil) {
-            println(segue.identifier!)
-        }
+        let vc: EditTImeViewController = segue.destinationViewController as EditTImeViewController
         if (segue.identifier! == "startTime") {
-            let vc: EditTImeViewController = segue.destinationViewController as EditTImeViewController
             vc.isStartTime = true
+            duringEditStartTime = true
+        } else {
+            vc.isStartTime = false
+            duringEditStartTime = false
+        }
+        vc.delegate = self
+    }
+    
+    func mainViewEditTime(controller: EditTImeViewController, text: String) {
+        if (duringEditStartTime) {
+            startTime.text = "出勤: " + text
+        } else {
+            finishTime.text = "退勤: " + text
         }
     }
-
 
 }
 

@@ -9,12 +9,19 @@
 import Foundation
 import UIKit
 
+protocol EditTimeViewControllerDelegate{
+    func mainViewEditTime(controller:EditTImeViewController,text:String)
+}
+
 class EditTImeViewController: UIViewController {
     
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     var isStartTime = false
+    
+    var delegate:EditTimeViewControllerDelegate? = nil
+    
     
     @IBAction func onEditTIme(sender: UIDatePicker) {
         let editTime = sender.date
@@ -26,6 +33,9 @@ class EditTImeViewController: UIViewController {
         dateFormatter.dateStyle = .NoStyle
         println(dateFormatter.stringFromDate(editTime))
         dateLabel.text = dateFormatter.stringFromDate(editTime)
+        if (delegate != nil) {
+            delegate!.mainViewEditTime(self, text: dateFormatter.stringFromDate(editTime))
+        }
     }
     
     
