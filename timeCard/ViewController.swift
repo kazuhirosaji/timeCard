@@ -19,11 +19,42 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
         startTime.text = "出勤: " + currentTime
+
+        // /Documentsまでのパス取得方法
+        let paths1 = NSSearchPathForDirectoriesInDomains(
+            .DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
+        
+        println(path)
+        // 保存するデータ
+        var user = ["Name": "saji", "Comment": "hello"]
+        // NSKeyedArchiverクラスを使ってデータを保存する。
+        // 第一引数に保存するデータ、第二引数にファイルパスを渡します。
+        let success = NSKeyedArchiver.archiveRootObject(user, toFile: path)
+        if success {
+            println("保存に成功")
+        }
     }
     
     @IBAction func finishWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
         finishTime.text = "退勤: " + currentTime
+
+        // /Documentsまでのパス取得方法
+        let paths1 = NSSearchPathForDirectoriesInDomains(
+            .DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
+        
+        // NSKeyedUnarchiverクラスを使って保存したデータを読み込む。
+        let user = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as [String: String]
+        
+        for (key, value) in user {
+            println("\(key)：\(value)")
+        }
     }
     
     func getCurrentTimeStr()->String {
@@ -56,6 +87,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
+        
     }
 
     override func didReceiveMemoryWarning() {
