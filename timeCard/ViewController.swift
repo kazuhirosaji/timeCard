@@ -18,30 +18,46 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        startTime.text = "出勤: " + currentTime
-
-        // /Documentsまでのパス取得方法
-        let paths1 = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask, true)
-        
-        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
-        
-        println(path)
-        // 保存するデータ
-        var user = ["Name": "saji", "Comment": "hello"]
-        // NSKeyedArchiverクラスを使ってデータを保存する。
-        // 第一引数に保存するデータ、第二引数にファイルパスを渡します。
-        let success = NSKeyedArchiver.archiveRootObject(user, toFile: path)
-        if success {
-            println("保存に成功")
-        }
+        updateWorkTime(currentTime, isStart: true)
     }
     
     @IBAction func finishWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
-        finishTime.text = "退勤: " + currentTime
+        updateWorkTime(currentTime, isStart: false)
+    }
+    
+    func updateWorkTime(time :String, isStart :Bool) {
+        if isStart {
+            startTime.text = "出勤: " + time
+        } else {
+            finishTime.text = "退勤: " + time
+        }
+        saveTime(isStart)
+    }
 
+    func saveTime(isStart: Bool)->Bool {
+        // /Documentsまでのパス取得方法
+        let paths1 = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        //let path = paths1[0].stringByAppendingPathComponent(getCurrentDateStr() + ".dat")
+        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
+        println(path)
+        
+        // 保存するデータ
+        var key: String
+        if (isStart) {
+            key = "出勤"
+        } else {
+            key = "退勤"
+        }
+        
+        var saveData = [key: getCurrentTimeStr()]
+        // NSKeyedArchiverクラスを使ってデータを保存する。
+        // 第一引数に保存するデータ、第二引数にファイルパスを渡します。
+        let success = NSKeyedArchiver.archiveRootObject(saveData, toFile: path)
+        return success
+    }
+    
+    func loadTime() {
         // /Documentsまでのパス取得方法
         let paths1 = NSSearchPathForDirectoriesInDomains(
             .DocumentDirectory,
@@ -50,9 +66,9 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         let path = paths1[0].stringByAppendingPathComponent("sample.dat")
         
         // NSKeyedUnarchiverクラスを使って保存したデータを読み込む。
-        let user = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as [String: String]
+        let saveData = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as [String: String]
         
-        for (key, value) in user {
+        for (key, value) in saveData {
             println("\(key)：\(value)")
         }
     }
@@ -87,7 +103,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        
+        loadTime()
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,11 +124,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
     
     func mainViewEditTime(controller: EditTImeViewController, text: String) {
-        if (duringEditStartTime) {
-            startTime.text = "出勤: " + text
-        } else {
-            finishTime.text = "退勤: " + text
-        }
+        updateWorkTime(text, isStart: duringEditStartTime)
     }
 
 }
