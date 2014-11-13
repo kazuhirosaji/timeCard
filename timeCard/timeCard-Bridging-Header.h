@@ -7,6 +7,7 @@
 //
 
 #import <sqlite3.h>
+#import "FMDatabase.h"
 
 #ifndef timeCard_timeCard_Bridging_Header_h
 #define timeCard_timeCard_Bridging_Header_h

@@ -14,6 +14,11 @@
 		32367F8D1A090ECD0059D042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32367F8B1A090ECD0059D042 /* LaunchScreen.xib */; };
 		32367F991A090ECD0059D042 /* timeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F981A090ECD0059D042 /* timeCardTests.swift */; };
 		32E286DB1A0E129000F3B4B0 /* EditTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */; };
+		32E67ADE1A14FA3D00B156BC /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E67AD41A14FA3D00B156BC /* FMDatabase.m */; };
+		32E67ADF1A14FA3D00B156BC /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E67AD61A14FA3D00B156BC /* FMDatabaseAdditions.m */; };
+		32E67AE01A14FA3D00B156BC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E67AD81A14FA3D00B156BC /* FMDatabasePool.m */; };
+		32E67AE11A14FA3D00B156BC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E67ADA1A14FA3D00B156BC /* FMDatabaseQueue.m */; };
+		32E67AE21A14FA3D00B156BC /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E67ADD1A14FA3D00B156BC /* FMResultSet.m */; };
 		32FE78C41A14F6F3008DB414 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,17 @@
 		32367F971A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32367F981A090ECD0059D042 /* timeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCardTests.swift; sourceTree = "<group>"; };
 		32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimeViewController.swift; sourceTree = "<group>"; };
+		32E67AD31A14FA3D00B156BC /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		32E67AD41A14FA3D00B156BC /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		32E67AD51A14FA3D00B156BC /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		32E67AD61A14FA3D00B156BC /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		32E67AD71A14FA3D00B156BC /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		32E67AD81A14FA3D00B156BC /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		32E67AD91A14FA3D00B156BC /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		32E67ADA1A14FA3D00B156BC /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		32E67ADB1A14FA3D00B156BC /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		32E67ADC1A14FA3D00B156BC /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		32E67ADD1A14FA3D00B156BC /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		32FE78C51A14F745008DB414 /* timeCard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timeCard-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +81,7 @@
 		32367F741A090ECD0059D042 = {
 			isa = PBXGroup;
 			children = (
+				32E67AD11A14F9B100B156BC /* lib */,
 				32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */,
 				32367F7F1A090ECD0059D042 /* timeCard */,
 				32367F951A090ECD0059D042 /* timeCardTests */,
@@ -119,6 +136,33 @@
 				32367F971A090ECD0059D042 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32E67AD11A14F9B100B156BC /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				32E67AD21A14FA3D00B156BC /* fmdb */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		32E67AD21A14FA3D00B156BC /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				32E67AD31A14FA3D00B156BC /* FMDatabase.h */,
+				32E67AD41A14FA3D00B156BC /* FMDatabase.m */,
+				32E67AD51A14FA3D00B156BC /* FMDatabaseAdditions.h */,
+				32E67AD61A14FA3D00B156BC /* FMDatabaseAdditions.m */,
+				32E67AD71A14FA3D00B156BC /* FMDatabasePool.h */,
+				32E67AD81A14FA3D00B156BC /* FMDatabasePool.m */,
+				32E67AD91A14FA3D00B156BC /* FMDatabaseQueue.h */,
+				32E67ADA1A14FA3D00B156BC /* FMDatabaseQueue.m */,
+				32E67ADB1A14FA3D00B156BC /* FMDB.h */,
+				32E67ADC1A14FA3D00B156BC /* FMResultSet.h */,
+				32E67ADD1A14FA3D00B156BC /* FMResultSet.m */,
+			);
+			name = fmdb;
+			path = "../../../../Downloads/fmdb-master/src/fmdb";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				32367F851A090ECD0059D042 /* ViewController.swift in Sources */,
+				32E67AE01A14FA3D00B156BC /* FMDatabasePool.m in Sources */,
 				32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */,
+				32E67AE11A14FA3D00B156BC /* FMDatabaseQueue.m in Sources */,
 				32E286DB1A0E129000F3B4B0 /* EditTimeViewController.swift in Sources */,
+				32E67ADE1A14FA3D00B156BC /* FMDatabase.m in Sources */,
+				32E67AE21A14FA3D00B156BC /* FMResultSet.m in Sources */,
+				32E67ADF1A14FA3D00B156BC /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
