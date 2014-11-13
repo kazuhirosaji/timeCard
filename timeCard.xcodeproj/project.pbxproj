@@ -14,6 +14,7 @@
 		32367F8D1A090ECD0059D042 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32367F8B1A090ECD0059D042 /* LaunchScreen.xib */; };
 		32367F991A090ECD0059D042 /* timeCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F981A090ECD0059D042 /* timeCardTests.swift */; };
 		32E286DB1A0E129000F3B4B0 /* EditTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */; };
+		32FE78C41A14F6F3008DB414 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		32367F971A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32367F981A090ECD0059D042 /* timeCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCardTests.swift; sourceTree = "<group>"; };
 		32E286DA1A0E129000F3B4B0 /* EditTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTimeViewController.swift; sourceTree = "<group>"; };
+		32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		32FE78C51A14F745008DB414 /* timeCard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "timeCard-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FE78C41A14F6F3008DB414 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +65,7 @@
 		32367F741A090ECD0059D042 = {
 			isa = PBXGroup;
 			children = (
+				32FE78C31A14F6F3008DB414 /* libsqlite3.0.dylib */,
 				32367F7F1A090ECD0059D042 /* timeCard */,
 				32367F951A090ECD0059D042 /* timeCardTests */,
 				32367F7E1A090ECD0059D042 /* Products */,
@@ -86,6 +91,7 @@
 				32367F891A090ECD0059D042 /* Images.xcassets */,
 				32367F8B1A090ECD0059D042 /* LaunchScreen.xib */,
 				32367F801A090ECD0059D042 /* Supporting Files */,
+				32FE78C51A14F745008DB414 /* timeCard-Bridging-Header.h */,
 			);
 			path = timeCard;
 			sourceTree = "<group>";
