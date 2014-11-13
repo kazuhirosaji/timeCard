@@ -349,6 +349,7 @@
 				INFOPLIST_FILE = timeCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/timeCard-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -359,6 +360,7 @@
 				INFOPLIST_FILE = timeCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT)/timeCard-Bridging-Header.h";
 			};
 			name = Release;
 		};
