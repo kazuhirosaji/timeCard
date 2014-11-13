@@ -36,40 +36,67 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
 
     func saveTime(isStart: Bool)->Bool {
-        // /Documentsまでのパス取得方法
-        let paths1 = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        //let path = paths1[0].stringByAppendingPathComponent(getCurrentDateStr() + ".dat")
-        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
-        println(path)
+        let _dbfile:NSString = "dummy.db"
+        let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
+            NSSearchPathDirectory.DocumentDirectory,
+            NSSearchPathDomainMask.UserDomainMask,
+            true)[0]
+        let fileManager:NSFileManager = NSFileManager.defaultManager()
+        let _path:String = _dir.stringByAppendingPathComponent(_dbfile)
         
-        // 保存するデータ
-        var key: String
-        if (isStart) {
-            key = "出勤"
+        println(_path)
+        
+        
+        if (fileManager.fileExistsAtPath(_path)) {
+            //ファイルが存在する場合
+            let _db = FMDatabase(path: _path)
+            
+            let _sql_insert = "insert into test (title) values (?);"
+            
+            
+            _db.open()
+            var _result_insert = _db.executeUpdate(_sql_insert, withArgumentsInArray: ["あいうえお"])
+            println(_result_insert)
+            _db.close()
         } else {
-            key = "退勤"
+            println("db not created")
         }
-        
-        var saveData = [key: getCurrentTimeStr()]
-        // NSKeyedArchiverクラスを使ってデータを保存する。
-        // 第一引数に保存するデータ、第二引数にファイルパスを渡します。
-        let success = NSKeyedArchiver.archiveRootObject(saveData, toFile: path)
-        return success
+        return true
     }
     
     func loadTime() {
-        // /Documentsまでのパス取得方法
-        let paths1 = NSSearchPathForDirectoriesInDomains(
-            .DocumentDirectory,
-            .UserDomainMask, true)
-        
-        let path = paths1[0].stringByAppendingPathComponent("sample.dat")
-        
-        // NSKeyedUnarchiverクラスを使って保存したデータを読み込む。
-        let saveData = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as [String: String]
-        
-        for (key, value) in saveData {
-            println("\(key)：\(value)")
+        let _dbfile:NSString = "dummy.db"
+        let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
+            NSSearchPathDirectory.DocumentDirectory,
+            NSSearchPathDomainMask.UserDomainMask,
+            true)[0]
+        let fileManager:NSFileManager = NSFileManager.defaultManager()
+        let _path:String = _dir.stringByAppendingPathComponent(_dbfile)
+
+        if(!fileManager.fileExistsAtPath(_path)){
+            //ファイルがない場合はDBファイル作成
+            let _db = FMDatabase(path: _path)
+            let _sql = "CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT);"
+            
+            _db.open()
+            
+            var _result = _db.executeStatements(_sql)
+            println(_result)
+            
+            _db.close()
+        } else {
+            let _db = FMDatabase(path: _path)
+            _db.open()
+            let _sql_select = "SELECT title FROM test"
+            var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
+            
+            
+            while(_rows != nil && _rows.next()){
+                var _title = _rows.stringForColumn("title")
+                println(_title)
+            }
+            
+            _db.close()
         }
     }
     
