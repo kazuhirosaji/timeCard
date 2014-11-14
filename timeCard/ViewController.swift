@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
+    var file_path:String = ""
+
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var finishTime: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     var duringEditStartTime = false
-
+    let fileManager:NSFileManager = NSFileManager.defaultManager()
+    
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
         updateWorkTime(currentTime, isStart: true)
@@ -34,22 +37,22 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         }
         saveTime(isStart)
     }
-
-    func saveTime(isStart: Bool)->Bool {
+    
+    func initFileSetting() {
         let _dbfile:NSString = "dummy.db"
         let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
             NSSearchPathDirectory.DocumentDirectory,
             NSSearchPathDomainMask.UserDomainMask,
             true)[0]
-        let fileManager:NSFileManager = NSFileManager.defaultManager()
-        let _path:String = _dir.stringByAppendingPathComponent(_dbfile)
+        file_path = _dir.stringByAppendingPathComponent(_dbfile)
         
-        println(_path)
-        
-        
-        if (fileManager.fileExistsAtPath(_path)) {
+        println(file_path)
+    }
+
+    func saveTime(isStart: Bool)->Bool {
+        if (fileManager.fileExistsAtPath(file_path)) {
             //ファイルが存在する場合
-            let _db = FMDatabase(path: _path)
+            let _db = FMDatabase(path: file_path)
             
             let _sql_insert = "insert into test (title) values (?);"
             
@@ -63,19 +66,12 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         }
         return true
     }
+
     
     func loadTime() {
-        let _dbfile:NSString = "dummy.db"
-        let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
-            NSSearchPathDirectory.DocumentDirectory,
-            NSSearchPathDomainMask.UserDomainMask,
-            true)[0]
-        let fileManager:NSFileManager = NSFileManager.defaultManager()
-        let _path:String = _dir.stringByAppendingPathComponent(_dbfile)
-
-        if(!fileManager.fileExistsAtPath(_path)){
+        if(!fileManager.fileExistsAtPath(file_path)){
             //ファイルがない場合はDBファイル作成
-            let _db = FMDatabase(path: _path)
+            let _db = FMDatabase(path: file_path)
             let _sql = "CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT);"
             
             _db.open()
@@ -85,7 +81,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             
             _db.close()
         } else {
-            let _db = FMDatabase(path: _path)
+            let _db = FMDatabase(path: file_path)
             _db.open()
             let _sql_select = "SELECT title FROM test"
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
@@ -130,6 +126,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
+        initFileSetting()
         loadTime()
     }
 
