@@ -53,16 +53,24 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         if (fileManager.fileExistsAtPath(file_path)) {
             //ファイルが存在する場合
             let _db = FMDatabase(path: file_path)
-            
-            let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (?, ?, ?);"
-            
+
             _db.open()
-            var _result_insert = _db.executeUpdate(_sql_insert,
-                withArgumentsInArray: [getCurrentDateStr(), getCurrentTimeStr(), getCurrentTimeStr()])
-            println(_result_insert)
+            let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
+            var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [getCurrentDateStr()])
+            
+            if (_rows != nil) {
+                let _sql_update = "UPDATE timeCardDummy SET starttime = :START WHERE date = :DATE;"
+                _db.executeUpdate(_sql_update, withParameterDictionary: ["START":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
+            } else {
+                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (?, ?, ?);"
+                var _result_insert = _db.executeUpdate(_sql_insert,
+                    withArgumentsInArray: [getCurrentDateStr(), getCurrentTimeStr(), getCurrentTimeStr()])
+                println(_result_insert)
+            }
             _db.close()
+            
         } else {
-            println("db not created")
+            println("file not exist")
         }
         return true
     }
