@@ -39,7 +39,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
     
     func initFileSetting() {
-        let _dbfile:NSString = "dummy.db"
+        let _dbfile:NSString = "dummy4.db"
         let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
             NSSearchPathDirectory.DocumentDirectory,
             NSSearchPathDomainMask.UserDomainMask,
@@ -54,11 +54,11 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             //ファイルが存在する場合
             let _db = FMDatabase(path: file_path)
             
-            let _sql_insert = "insert into test (title) values (?);"
-            
+            let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (?, ?, ?);"
             
             _db.open()
-            var _result_insert = _db.executeUpdate(_sql_insert, withArgumentsInArray: ["あいうえお"])
+            var _result_insert = _db.executeUpdate(_sql_insert,
+                withArgumentsInArray: [getCurrentDateStr(), getCurrentTimeStr(), getCurrentTimeStr()])
             println(_result_insert)
             _db.close()
         } else {
@@ -72,7 +72,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         if(!fileManager.fileExistsAtPath(file_path)){
             //ファイルがない場合はDBファイル作成
             let _db = FMDatabase(path: file_path)
-            let _sql = "CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT);"
+            let _sql = "CREATE TABLE timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
             
             _db.open()
             
@@ -83,13 +83,14 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         } else {
             let _db = FMDatabase(path: file_path)
             _db.open()
-            let _sql_select = "SELECT title FROM test"
+            let _sql_select = "SELECT * FROM timeCardDummy"
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
             
             
             while(_rows != nil && _rows.next()){
-                var _title = _rows.stringForColumn("title")
-                println(_title)
+                var date = _rows.stringForColumn("date")
+                var starttime = _rows.stringForColumn("starttime")
+                println(date + " " + starttime)
             }
             
             _db.close()
