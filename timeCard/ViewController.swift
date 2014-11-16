@@ -10,7 +10,7 @@ import UIKit
 
 class WorkTimeFileManager {
     var file_path:String = ""
-    let file_name:NSString = "dummy4.db"
+    let file_name:NSString = "dummy5.db"
 
     init() {
         let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
@@ -101,8 +101,9 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     func loadTime() {
         if(!fileManager.fileExistsAtPath(workTimeManager.file_path)){
             //ファイルがない場合はDBファイル作成
+            println("create new table")
             let _db = FMDatabase(path: workTimeManager.file_path)
-            let _sql = "CREATE TABLE timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
+            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
             
             _db.open()
             
