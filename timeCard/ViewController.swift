@@ -58,7 +58,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [getCurrentDateStr()])
             
-            if (_rows != nil) {
+            if (_rows != nil && _rows.next()) {
                 let _sql_update = "UPDATE timeCardDummy SET starttime = :START WHERE date = :DATE;"
                 _db.executeUpdate(_sql_update, withParameterDictionary: ["START":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
             } else {
