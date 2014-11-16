@@ -8,9 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController ,EditTimeViewControllerDelegate {
-
+class WorkTimeFileManager {
     var file_path:String = ""
+    let file_name:NSString = "dummy4.db"
+
+    init() {
+        let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
+            NSSearchPathDirectory.DocumentDirectory,
+            NSSearchPathDomainMask.UserDomainMask,
+            true)[0]
+        file_path = _dir.stringByAppendingPathComponent(file_name)
+        
+        //println(file_path)
+    }
+    
+}
+
+class ViewController: UIViewController ,EditTimeViewControllerDelegate {
+    
+    var workTimeManager = WorkTimeFileManager()
 
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var finishTime: UILabel!
@@ -43,21 +59,10 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
 
 
-    func initFileSetting() {
-        let _dbfile:NSString = "dummy4.db"
-        let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
-            NSSearchPathDirectory.DocumentDirectory,
-            NSSearchPathDomainMask.UserDomainMask,
-            true)[0]
-        file_path = _dir.stringByAppendingPathComponent(_dbfile)
-        
-        //println(file_path)
-    }
-
     func saveTime(isStart: Bool)->Bool {
-        if (fileManager.fileExistsAtPath(file_path)) {
+        if (fileManager.fileExistsAtPath(workTimeManager.file_path)) {
             //ファイルが存在する場合
-            let _db = FMDatabase(path: file_path)
+            let _db = FMDatabase(path: workTimeManager.file_path)
 
             _db.open()
             let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
@@ -94,9 +99,9 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
     
     func loadTime() {
-        if(!fileManager.fileExistsAtPath(file_path)){
+        if(!fileManager.fileExistsAtPath(workTimeManager.file_path)){
             //ファイルがない場合はDBファイル作成
-            let _db = FMDatabase(path: file_path)
+            let _db = FMDatabase(path: workTimeManager.file_path)
             let _sql = "CREATE TABLE timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
             
             _db.open()
@@ -106,7 +111,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             
             _db.close()
         } else {
-            let _db = FMDatabase(path: file_path)
+            let _db = FMDatabase(path: workTimeManager.file_path)
             _db.open()
             let _sql_select = "SELECT * FROM timeCardDummy"
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
@@ -158,7 +163,6 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        initFileSetting()
         loadTime()
     }
 
