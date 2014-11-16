@@ -59,12 +59,24 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [getCurrentDateStr()])
             
             if (_rows != nil && _rows.next()) {
-                let _sql_update = "UPDATE timeCardDummy SET starttime = :START WHERE date = :DATE;"
-                _db.executeUpdate(_sql_update, withParameterDictionary: ["START":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
+                var _sql_update = ""
+                if (isStart) {
+                    _sql_update = "UPDATE timeCardDummy SET starttime = :TIME WHERE date = :DATE;"
+                } else {
+                    _sql_update = "UPDATE timeCardDummy SET endtime = :TIME WHERE date = :DATE;"
+                }
+                _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
             } else {
-                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (?, ?, ?);"
+                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
+                var start:String = "-"
+                var end:String = "-"
+                if (isStart) {
+                    start = getCurrentTimeStr()
+                } else {
+                    end = getCurrentTimeStr()
+                }
                 var _result_insert = _db.executeUpdate(_sql_insert,
-                    withArgumentsInArray: [getCurrentDateStr(), getCurrentTimeStr(), getCurrentTimeStr()])
+                    withParameterDictionary: ["DATE":getCurrentDateStr(), "START":start, "END":end])
                 println(_result_insert)
             }
             _db.close()
@@ -98,7 +110,8 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             while(_rows != nil && _rows.next()){
                 var date = _rows.stringForColumn("date")
                 var starttime = _rows.stringForColumn("starttime")
-                println(date + " " + starttime)
+                var endtime = _rows.stringForColumn("endtime")
+                println(date + " " + starttime + " ~ " + endtime)
             }
             
             _db.close()
