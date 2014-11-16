@@ -11,7 +11,8 @@ import UIKit
 class WorkTimeFileManager {
     var file_path:String = ""
     let file_name:NSString = "dummy5.db"
-
+    let fileManager:NSFileManager = NSFileManager.defaultManager()
+    
     init() {
         let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
             NSSearchPathDirectory.DocumentDirectory,
@@ -21,7 +22,15 @@ class WorkTimeFileManager {
         
         //println(file_path)
     }
-    
+
+    func isReadyFile()->Bool {
+        if (fileManager.fileExistsAtPath(file_path)) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 }
 
 class ViewController: UIViewController ,EditTimeViewControllerDelegate {
@@ -33,7 +42,6 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     var duringEditStartTime = false
-    let fileManager:NSFileManager = NSFileManager.defaultManager()
     
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
@@ -60,7 +68,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
 
     func saveTime(isStart: Bool)->Bool {
-        if (fileManager.fileExistsAtPath(workTimeManager.file_path)) {
+        if (workTimeManager.isReadyFile()) {
             //ファイルが存在する場合
             let _db = FMDatabase(path: workTimeManager.file_path)
 
@@ -99,7 +107,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
 
     
     func loadTime() {
-        if(!fileManager.fileExistsAtPath(workTimeManager.file_path)){
+        if(!workTimeManager.isReadyFile()){
             //ファイルがない場合はDBファイル作成
             println("create new table")
             let _db = FMDatabase(path: workTimeManager.file_path)
