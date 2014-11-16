@@ -46,7 +46,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             true)[0]
         file_path = _dir.stringByAppendingPathComponent(_dbfile)
         
-        println(file_path)
+        //println(file_path)
     }
 
     func saveTime(isStart: Bool)->Bool {
@@ -85,7 +85,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             _db.open()
             
             var _result = _db.executeStatements(_sql)
-            println(_result)
+            // println(_result)
             
             _db.close()
         } else {
@@ -113,7 +113,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         
         dateFormatter.timeStyle = .MediumStyle
         dateFormatter.dateStyle = .NoStyle
-        println(dateFormatter.stringFromDate(now))
+        // println(dateFormatter.stringFromDate(now))
         return dateFormatter.stringFromDate(now)
     }
     
@@ -125,7 +125,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .MediumStyle
-        println(dateFormatter.stringFromDate(now))
+        // println(dateFormatter.stringFromDate(now))
         return dateFormatter.stringFromDate(now)
     }
     
