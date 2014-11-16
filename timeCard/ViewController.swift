@@ -30,14 +30,19 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
     
     func updateWorkTime(time :String, isStart :Bool) {
+        updateTimeDisplay(time, isStart: isStart)
+        saveTime(isStart)
+    }
+    
+    func updateTimeDisplay(time :String, isStart :Bool) {
         if isStart {
             startTime.text = "出勤: " + time
         } else {
             finishTime.text = "退勤: " + time
         }
-        saveTime(isStart)
     }
-    
+
+
     func initFileSetting() {
         let _dbfile:NSString = "dummy4.db"
         let _dir:AnyObject = NSSearchPathForDirectoriesInDomains(
@@ -68,8 +73,8 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
                 _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
             } else {
                 let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
-                var start:String = "-"
-                var end:String = "-"
+                var start:String = "--:--:--"
+                var end:String = "--:--:--"
                 if (isStart) {
                     start = getCurrentTimeStr()
                 } else {
@@ -109,9 +114,14 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             
             while(_rows != nil && _rows.next()){
                 var date = _rows.stringForColumn("date")
-                var starttime = _rows.stringForColumn("starttime")
-                var endtime = _rows.stringForColumn("endtime")
-                println(date + " " + starttime + " ~ " + endtime)
+                var start = _rows.stringForColumn("starttime")
+                var end = _rows.stringForColumn("endtime")
+                println(date + " " + start + " ~ " + end)
+                if date == getCurrentDateStr() {
+                    updateTimeDisplay(start, isStart: true)
+                    updateTimeDisplay(end, isStart: false)
+                }
+                
             }
             
             _db.close()
