@@ -27,6 +27,45 @@ class WorkTimeFileManager {
         return fileManager.fileExistsAtPath(file_path)
     }
 
+    func saveTime(date:String, time :String, isStart: Bool)->Bool {
+        if (isReadyFile()) {
+            //ファイルが存在する場合
+            let _db = FMDatabase(path: file_path)
+            
+            _db.open()
+            let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
+            var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [date])
+            
+            if (_rows != nil && _rows.next()) {
+                var _sql_update = ""
+                if (isStart) {
+                    _sql_update = "UPDATE timeCardDummy SET starttime = :TIME WHERE date = :DATE;"
+                } else {
+                    _sql_update = "UPDATE timeCardDummy SET endtime = :TIME WHERE date = :DATE;"
+                }
+                _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":time, "DATE": date])
+            } else {
+                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
+                var start:String = "--:--:--"
+                var end:String = "--:--:--"
+                if (isStart) {
+                    start = time
+                } else {
+                    end = time
+                }
+                var _result_insert = _db.executeUpdate(_sql_insert,
+                    withParameterDictionary: ["DATE":date, "START":start, "END":end])
+                println(_result_insert)
+            }
+            _db.close()
+            
+        } else {
+            println("file not exist")
+        }
+        return true
+    }
+
+    
 }
 
 class ViewController: UIViewController ,EditTimeViewControllerDelegate {
@@ -51,7 +90,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     
     func updateWorkTime(time :String, isStart :Bool) {
         updateTimeDisplay(time, isStart: isStart)
-        saveTime(time, isStart: isStart)
+        workTimeManager.saveTime(getCurrentDateStr(), time: time, isStart: isStart)
     }
     
     func updateTimeDisplay(time :String, isStart :Bool) {
@@ -61,48 +100,8 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             finishTime.text = "退勤: " + time
         }
     }
-
-
-    func saveTime(time :String, isStart: Bool)->Bool {
-        if (workTimeManager.isReadyFile()) {
-            //ファイルが存在する場合
-            let _db = FMDatabase(path: workTimeManager.file_path)
-
-            _db.open()
-            let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
-            var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [getCurrentDateStr()])
-            
-            if (_rows != nil && _rows.next()) {
-                var _sql_update = ""
-                if (isStart) {
-                    _sql_update = "UPDATE timeCardDummy SET starttime = :TIME WHERE date = :DATE;"
-                } else {
-                    _sql_update = "UPDATE timeCardDummy SET endtime = :TIME WHERE date = :DATE;"
-                }
-                _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":time, "DATE": getCurrentDateStr()])
-            } else {
-                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
-                var start:String = "--:--:--"
-                var end:String = "--:--:--"
-                if (isStart) {
-                    start = time
-                } else {
-                    end = time
-                }
-                var _result_insert = _db.executeUpdate(_sql_insert,
-                    withParameterDictionary: ["DATE":getCurrentDateStr(), "START":start, "END":end])
-                println(_result_insert)
-            }
-            _db.close()
-            
-        } else {
-            println("file not exist")
-        }
-        return true
-    }
-
     
-    func loadTime() {
+    func loadTime(today: String)->FMResultSet {
         if(!workTimeManager.isReadyFile()){
             //ファイルがない場合はDBファイル作成
             println("create new table")
@@ -115,27 +114,27 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
             // println(_result)
             
             _db.close()
-        } else {
-            let _db = FMDatabase(path: workTimeManager.file_path)
-            _db.open()
-            let _sql_select = "SELECT * FROM timeCardDummy"
-            var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
-            
-            
-            while(_rows != nil && _rows.next()){
-                var date = _rows.stringForColumn("date")
-                var start = _rows.stringForColumn("starttime")
-                var end = _rows.stringForColumn("endtime")
-                println(date + " " + start + " ~ " + end)
-                if date == getCurrentDateStr() {
-                    updateTimeDisplay(start, isStart: true)
-                    updateTimeDisplay(end, isStart: false)
-                }
-                
+        }
+
+        let _db = FMDatabase(path: workTimeManager.file_path)
+        _db.open()
+        let _sql_select = "SELECT * FROM timeCardDummy"
+        var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
+
+        while(_rows != nil && _rows.next()){
+            var date = _rows.stringForColumn("date")
+            var start = _rows.stringForColumn("starttime")
+            var end = _rows.stringForColumn("endtime")
+            println(date + " " + start + " ~ " + end)
+            if date == getCurrentDateStr() {
+                updateTimeDisplay(start, isStart: true)
+                updateTimeDisplay(end, isStart: false)
             }
             
-            _db.close()
         }
+        
+        _db.close()
+        return _rows
     }
     
     func getCurrentTimeStr()->String {
@@ -168,7 +167,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        loadTime()
+        let rows = loadTime(getCurrentDateStr())
     }
 
     override func didReceiveMemoryWarning() {
