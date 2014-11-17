@@ -24,11 +24,7 @@ class WorkTimeFileManager {
     }
 
     func isReadyFile()->Bool {
-        if (fileManager.fileExistsAtPath(file_path)) {
-            return true
-        } else {
-            return false
-        }
+        return fileManager.fileExistsAtPath(file_path)
     }
 
 }
@@ -55,7 +51,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     
     func updateWorkTime(time :String, isStart :Bool) {
         updateTimeDisplay(time, isStart: isStart)
-        saveTime(isStart)
+        saveTime(time, isStart: isStart)
     }
     
     func updateTimeDisplay(time :String, isStart :Bool) {
@@ -67,7 +63,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
 
 
-    func saveTime(isStart: Bool)->Bool {
+    func saveTime(time :String, isStart: Bool)->Bool {
         if (workTimeManager.isReadyFile()) {
             //ファイルが存在する場合
             let _db = FMDatabase(path: workTimeManager.file_path)
@@ -83,15 +79,15 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
                 } else {
                     _sql_update = "UPDATE timeCardDummy SET endtime = :TIME WHERE date = :DATE;"
                 }
-                _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":getCurrentTimeStr(), "DATE": getCurrentDateStr()])
+                _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":time, "DATE": getCurrentDateStr()])
             } else {
                 let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
                 var start:String = "--:--:--"
                 var end:String = "--:--:--"
                 if (isStart) {
-                    start = getCurrentTimeStr()
+                    start = time
                 } else {
-                    end = getCurrentTimeStr()
+                    end = time
                 }
                 var _result_insert = _db.executeUpdate(_sql_insert,
                     withParameterDictionary: ["DATE":getCurrentDateStr(), "START":start, "END":end])
