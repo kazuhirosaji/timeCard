@@ -15,7 +15,6 @@ protocol EditTimeViewControllerDelegate{
 
 class EditTImeViewController: UIViewController {
     
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     var isStartTime = false
