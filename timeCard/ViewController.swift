@@ -65,7 +65,43 @@ class WorkTimeFileManager {
         return true
     }
 
-    
+    func loadTime(today: String)->[String] {
+        if(isReadyFile()){
+            //ファイルがない場合はDBファイル作成
+            println("create new table")
+            let _db = FMDatabase(path: file_path)
+            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
+            
+            _db.open()
+            
+            var _result = _db.executeStatements(_sql)
+            // println(_result)
+            
+            _db.close()
+        }
+        
+        let _db = FMDatabase(path: file_path)
+        _db.open()
+        let _sql_select = "SELECT * FROM timeCardDummy"
+        var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
+        
+        var array = ["--:--:--", "--:--:--"]
+        
+        while(_rows != nil && _rows.next()){
+            var date = _rows.stringForColumn("date")
+            var start = _rows.stringForColumn("starttime")
+            var end = _rows.stringForColumn("endtime")
+            println(date + " " + start + " ~ " + end)
+            if date == today {
+                array[0] = start
+                array[1] = end
+            }
+        }
+        
+        _db.close()
+        return array
+    }
+
 }
 
 class ViewController: UIViewController ,EditTimeViewControllerDelegate {
@@ -77,6 +113,7 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     var duringEditStartTime = false
+    
     
     @IBAction func startWork(sender: AnyObject) {
         var currentTime:String = getCurrentTimeStr();
@@ -99,42 +136,6 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         } else {
             finishTime.text = "退勤: " + time
         }
-    }
-    
-    func loadTime(today: String)->FMResultSet {
-        if(!workTimeManager.isReadyFile()){
-            //ファイルがない場合はDBファイル作成
-            println("create new table")
-            let _db = FMDatabase(path: workTimeManager.file_path)
-            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
-            
-            _db.open()
-            
-            var _result = _db.executeStatements(_sql)
-            // println(_result)
-            
-            _db.close()
-        }
-
-        let _db = FMDatabase(path: workTimeManager.file_path)
-        _db.open()
-        let _sql_select = "SELECT * FROM timeCardDummy"
-        var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
-
-        while(_rows != nil && _rows.next()){
-            var date = _rows.stringForColumn("date")
-            var start = _rows.stringForColumn("starttime")
-            var end = _rows.stringForColumn("endtime")
-            println(date + " " + start + " ~ " + end)
-            if date == getCurrentDateStr() {
-                updateTimeDisplay(start, isStart: true)
-                updateTimeDisplay(end, isStart: false)
-            }
-            
-        }
-        
-        _db.close()
-        return _rows
     }
     
     func getCurrentTimeStr()->String {
@@ -167,7 +168,9 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         dateLabel.text = getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        let rows = loadTime(getCurrentDateStr())
+        let times = workTimeManager.loadTime(getCurrentDateStr())
+        updateTimeDisplay(times[0], isStart: true)
+        updateTimeDisplay(times[1], isStart: false)
     }
 
     override func didReceiveMemoryWarning() {
