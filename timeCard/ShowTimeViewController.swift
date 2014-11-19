@@ -30,7 +30,7 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidLoad() {
-        texts = workTimeManager.loadTime(timer.getCurrentDateStr());
+        texts = workTimeManager.getSelectDaysTime(timer.getCurrentDateStr());
         super.viewDidLoad()
     }
     

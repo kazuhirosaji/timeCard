@@ -101,5 +101,27 @@ class WorkTimeFileManager {
         _db.close()
         return array
     }
+
+    func getSelectDaysTime(selectDate: String)->[String] {
+        var array = [selectDate, "--:--:--", "--:--:--"]
+        if(!isReadyFile()){
+            //ファイルがない場合
+            return array
+        }
+        
+        let _db = FMDatabase(path: file_path)
+        _db.open()
+        let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
+        var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [selectDate])
+        
+        if(_rows != nil && _rows.next()){
+            array[0] = _rows.stringForColumn("date")
+            array[1] = _rows.stringForColumn("starttime")
+            array[2] = _rows.stringForColumn("endtime")
+        }
+        
+        _db.close()
+        return array
+    }
     
 }
