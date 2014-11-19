@@ -12,7 +12,9 @@ import UIKit
 class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate  {
     
     // セルに表示するテキスト
-    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let workTimeManager = WorkTimeFileManager()
+    var timer = CurrentTimeManager()
+    var texts = [""]
     
     // セルの行数
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,6 +30,7 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidLoad() {
+        texts = workTimeManager.loadTime(timer.getCurrentDateStr());
         super.viewDidLoad()
     }
     

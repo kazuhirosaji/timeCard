@@ -8,38 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController ,EditTimeViewControllerDelegate {
+class CurrentTimeManager {
     
-    var workTimeManager = WorkTimeFileManager()
-
-    @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var finishTime: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    var duringEditStartTime = false
-    
-    
-    @IBAction func startWork(sender: AnyObject) {
-        var currentTime:String = getCurrentTimeStr();
-        updateWorkTime(currentTime, isStart: true)
-    }
-    
-    @IBAction func finishWork(sender: AnyObject) {
-        var currentTime:String = getCurrentTimeStr();
-        updateWorkTime(currentTime, isStart: false)
-    }
-    
-    func updateWorkTime(time :String, isStart :Bool) {
-        updateTimeDisplay(time, isStart: isStart)
-        workTimeManager.saveTime(getCurrentDateStr(), time: time, isStart: isStart)
-    }
-    
-    func updateTimeDisplay(time :String, isStart :Bool) {
-        if isStart {
-            startTime.text = "出勤: " + time
-        } else {
-            finishTime.text = "退勤: " + time
-        }
+    init() {
+        
     }
     
     func getCurrentTimeStr()->String {
@@ -65,14 +37,50 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
         // println(dateFormatter.stringFromDate(now))
         return dateFormatter.stringFromDate(now)
     }
+}
+
+class ViewController: UIViewController ,EditTimeViewControllerDelegate {
+    
+    let workTimeManager = WorkTimeFileManager()
+    let timer = CurrentTimeManager()
+
+    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var finishTime: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    var duringEditStartTime = false
+    
+    
+    @IBAction func startWork(sender: AnyObject) {
+        var currentTime:String = timer.getCurrentTimeStr();
+        updateWorkTime(currentTime, isStart: true)
+    }
+    
+    @IBAction func finishWork(sender: AnyObject) {
+        var currentTime:String = timer.getCurrentTimeStr();
+        updateWorkTime(currentTime, isStart: false)
+    }
+    
+    func updateWorkTime(time :String, isStart :Bool) {
+        updateTimeDisplay(time, isStart: isStart)
+        workTimeManager.saveTime(timer.getCurrentDateStr(), time: time, isStart: isStart)
+    }
+    
+    func updateTimeDisplay(time :String, isStart :Bool) {
+        if isStart {
+            startTime.text = "出勤: " + time
+        } else {
+            finishTime.text = "退勤: " + time
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        dateLabel.text = getCurrentDateStr()
+        dateLabel.text = timer.getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        let times = workTimeManager.loadTime(getCurrentDateStr())
+        let times = workTimeManager.loadTime(timer.getCurrentDateStr())
         updateTimeDisplay(times[0], isStart: true)
         updateTimeDisplay(times[1], isStart: false)
     }
