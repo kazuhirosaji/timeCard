@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		321BF80B1A1B8134003E7BFE /* WorkTimeFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321BF80A1A1B8134003E7BFE /* WorkTimeFileManager.swift */; };
 		321F3DE11A1CD57D00F2701F /* ShowTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F3DE01A1CD57D00F2701F /* ShowTimeViewController.swift */; };
+		321F3DE31A1CECE100F2701F /* CurrentTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321F3DE21A1CECE100F2701F /* CurrentTimeManager.swift */; };
 		32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F821A090ECD0059D042 /* AppDelegate.swift */; };
 		32367F851A090ECD0059D042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32367F841A090ECD0059D042 /* ViewController.swift */; };
 		32367F881A090ECD0059D042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32367F861A090ECD0059D042 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		321BF80A1A1B8134003E7BFE /* WorkTimeFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkTimeFileManager.swift; sourceTree = "<group>"; };
 		321F3DE01A1CD57D00F2701F /* ShowTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTimeViewController.swift; sourceTree = "<group>"; };
+		321F3DE21A1CECE100F2701F /* CurrentTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTimeManager.swift; sourceTree = "<group>"; };
 		32367F7D1A090ECD0059D042 /* timeCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timeCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32367F811A090ECD0059D042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32367F821A090ECD0059D042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				32FE78C51A14F745008DB414 /* timeCard-Bridging-Header.h */,
 				321BF80A1A1B8134003E7BFE /* WorkTimeFileManager.swift */,
 				321F3DE01A1CD57D00F2701F /* ShowTimeViewController.swift */,
+				321F3DE21A1CECE100F2701F /* CurrentTimeManager.swift */,
 			);
 			path = timeCard;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32367F851A090ECD0059D042 /* ViewController.swift in Sources */,
+				321F3DE31A1CECE100F2701F /* CurrentTimeManager.swift in Sources */,
 				321BF80B1A1B8134003E7BFE /* WorkTimeFileManager.swift in Sources */,
 				32E67AE01A14FA3D00B156BC /* FMDatabasePool.m in Sources */,
 				32367F831A090ECD0059D042 /* AppDelegate.swift in Sources */,

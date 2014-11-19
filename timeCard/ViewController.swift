@@ -8,37 +8,6 @@
 
 import UIKit
 
-class CurrentTimeManager {
-    
-    init() {
-        
-    }
-    
-    func getCurrentTimeStr()->String {
-        let now = NSDate()
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
-        
-        dateFormatter.timeStyle = .MediumStyle
-        dateFormatter.dateStyle = .NoStyle
-        // println(dateFormatter.stringFromDate(now))
-        return dateFormatter.stringFromDate(now)
-    }
-    
-    func getCurrentDateStr()->String {
-        let now = NSDate()
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP")
-        
-        dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .MediumStyle
-        // println(dateFormatter.stringFromDate(now))
-        return dateFormatter.stringFromDate(now)
-    }
-}
-
 class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     
     let workTimeManager = WorkTimeFileManager()
