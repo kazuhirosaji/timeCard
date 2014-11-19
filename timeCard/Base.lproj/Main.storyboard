@@ -70,11 +70,21 @@
                                     <segue destination="Xoe-Xc-raC" kind="show" identifier="startTime" id="9JM-QJ-KNf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Js-0p-PyK">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wlM-6y-hcZ" kind="show" identifier="showTable" id="r2i-71-mAy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ofR-4w-hyP" secondAttribute="bottom" constant="115" id="0qf-Wy-Fh9"/>
                             <constraint firstAttribute="centerX" secondItem="yh4-QP-fFA" secondAttribute="centerX" id="1lX-Ob-hx8"/>
+                            <constraint firstAttribute="centerX" secondItem="8Js-0p-PyK" secondAttribute="centerX" id="2vF-ri-s4K"/>
                             <constraint firstAttribute="centerX" secondItem="yCU-TF-8RT" secondAttribute="centerX" constant="-100" id="4lN-7b-jvh"/>
                             <constraint firstItem="jo1-5i-heY" firstAttribute="top" secondItem="WLP-Mk-qkf" secondAttribute="bottom" constant="7.5" id="ELo-a6-0If"/>
                             <constraint firstAttribute="centerX" secondItem="3ah-Wv-HMc" secondAttribute="centerX" constant="-100" id="JAq-Vs-J7L"/>
@@ -84,6 +94,7 @@
                             <constraint firstItem="yCU-TF-8RT" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="W5I-Vq-QCe"/>
                             <constraint firstAttribute="centerX" secondItem="7KS-Ny-kcm" secondAttribute="centerX" constant="-60" id="XiG-5b-PBi"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="yh4-QP-fFA" secondAttribute="bottom" constant="23" id="g05-Ds-r3L"/>
+                            <constraint firstAttribute="centerY" secondItem="8Js-0p-PyK" secondAttribute="centerY" id="hy6-cT-k83"/>
                             <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="kbA-pa-Dh9"/>
                             <constraint firstItem="3ah-Wv-HMc" firstAttribute="top" secondItem="yCU-TF-8RT" secondAttribute="bottom" constant="7.5" id="rHb-m2-ENV"/>
@@ -102,10 +113,39 @@
             </objects>
             <point key="canvasLocation" x="-82" y="69"/>
         </scene>
+        <!--Show Time View Controller-->
+        <scene sceneID="e1f-Fo-zg3">
+            <objects>
+                <tableViewController id="wlM-6y-hcZ" customClass="ShowTimeViewController" customModule="timeCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lln-IG-SBi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jJq-1n-54D">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJq-1n-54D" id="jkM-Dn-JZ8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wlM-6y-hcZ" id="wLF-Nd-Y7x"/>
+                            <outlet property="delegate" destination="wlM-6y-hcZ" id="Nqj-88-6is"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="lln-IG-SBi" id="uU9-XU-yns"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k64-ne-6sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="401" y="843"/>
+        </scene>
         <!--EditT Ime View Controller-->
         <scene sceneID="WpV-4F-9y4">
             <objects>
-                <viewController id="Xoe-Xc-raC" customClass="EditTImeViewController" customModule="timeCard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xoe-Xc-raC" customClass="EditTImeViewController" customModule="timeCard" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkX-uX-Zpu"/>
                         <viewControllerLayoutGuide type="bottom" id="I0D-iN-jBn"/>

@@ -83,6 +83,9 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "showTable") {
+            return
+        }
         let vc: EditTImeViewController = segue.destinationViewController as EditTImeViewController
         if (segue.identifier! == "startTime") {
             vc.isStartTime = true
