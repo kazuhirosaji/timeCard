@@ -102,7 +102,7 @@ class WorkTimeFileManager {
         return array
     }
 
-    func getSelectDaysTime(selectDate: String)->[String] {
+    func getSelectDayInfo(selectDate: String)->[String] {
         var array = [selectDate, "--:--:--", "--:--:--"]
         if(!isReadyFile()){
             //ファイルがない場合
