@@ -99,6 +99,7 @@ class WorkTimeFileManager {
             dateArray[index][0] = _rows.stringForColumn("date")
             dateArray[index][1] = _rows.stringForColumn("starttime")
             dateArray[index][2] = _rows.stringForColumn("endtime")
+            index++
         }
         
         _db.close()

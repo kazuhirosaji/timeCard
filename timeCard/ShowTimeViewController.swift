@@ -18,16 +18,17 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
     
     // セルの行数
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1//texts.count
+        return texts.count
     }
     
     // セルの内容を変更
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Value2 , reuseIdentifier: "Cell")
 
-        
-        cell.textLabel.text = texts[0][0]
-        cell.detailTextLabel?.text = texts[0][1] + " ~ " + texts[0][2];
+        for(var i = 0; i < texts.count; i++) {
+            cell.textLabel.text = texts[i][0]
+            cell.detailTextLabel?.text = texts[i][1] + " ~ " + texts[i][2];
+        }
         return cell
     }
     
