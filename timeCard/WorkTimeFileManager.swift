@@ -22,6 +22,22 @@ class WorkTimeFileManager {
         
         //println(file_path)
     }
+
+    func createDb() {
+        if(!isReadyFile()){
+            //ファイルがない場合はDBファイル作成
+            println("create new table")
+            let _db = FMDatabase(path: file_path)
+            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
+            
+            _db.open()
+            
+            var _result = _db.executeStatements(_sql)
+            // println(_result)
+            
+            _db.close()
+        }
+    }
     
     func isReadyFile()->Bool {
         return fileManager.fileExistsAtPath(file_path)
@@ -66,26 +82,17 @@ class WorkTimeFileManager {
     }
     
     func loadTime(today: String)->[String] {
-        if(isReadyFile()){
+        var array = ["--:--:--", "--:--:--"]
+
+        if(!isReadyFile()){
             //ファイルがない場合はDBファイル作成
-            println("create new table")
-            let _db = FMDatabase(path: file_path)
-            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
-            
-            _db.open()
-            
-            var _result = _db.executeStatements(_sql)
-            // println(_result)
-            
-            _db.close()
+            return array
         }
         
         let _db = FMDatabase(path: file_path)
         _db.open()
         let _sql_select = "SELECT * FROM timeCardDummy"
         var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
-        
-        var array = ["--:--:--", "--:--:--"]
         
         while(_rows != nil && _rows.next()){
             var date = _rows.stringForColumn("date")

@@ -45,13 +45,14 @@ class ViewController: UIViewController ,EditTimeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        dateLabel.text = timer.getCurrentDateStr()
         
         self.navigationItem.title = "TOP"
-        let times = workTimeManager.loadTime(timer.getCurrentDateStr())
-        updateTimeDisplay(times[0], isStart: true)
-        updateTimeDisplay(times[1], isStart: false)
+        workTimeManager.createDb()
+        let times = workTimeManager.getSelectDayInfo(timer.getCurrentDateStr())
+
+        dateLabel.text = timer.getCurrentDateStr()
+        updateTimeDisplay(times[1], isStart: true)
+        updateTimeDisplay(times[2], isStart: false)
     }
 
     override func didReceiveMemoryWarning() {
