@@ -14,7 +14,7 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
     // セルに表示するテキスト
     let workTimeManager = WorkTimeFileManager()
     var timer = CurrentTimeManager()
-    var texts = [""]
+    var texts:[[String]] = [["","",""]]
     
     // セルの行数
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,13 +26,13 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Value2 , reuseIdentifier: "Cell")
 
         
-        cell.textLabel.text = texts[0]
-        cell.detailTextLabel?.text = texts[1] + " ~ " + texts[2];
+        cell.textLabel.text = texts[0][0]
+        cell.detailTextLabel?.text = texts[0][1] + " ~ " + texts[0][2];
         return cell
     }
     
     override func viewDidLoad() {
-        texts = workTimeManager.getSelectDayInfo(timer.getCurrentDateStr());
+        texts = workTimeManager.loadTime(timer.getCurrentDateStr())
         super.viewDidLoad()
     }
     

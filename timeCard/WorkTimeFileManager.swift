@@ -81,34 +81,30 @@ class WorkTimeFileManager {
         return true
     }
     
-    func loadTime(today: String)->[String] {
-        var array = ["--:--:--", "--:--:--"]
-
+    func loadTime(today: String)->[[String]] {
+        var dateArray = [["","",""]]
+        
         if(!isReadyFile()){
-            //ファイルがない場合はDBファイル作成
-            return array
+            //ファイルがない場合
+            return dateArray
         }
         
         let _db = FMDatabase(path: file_path)
         _db.open()
         let _sql_select = "SELECT * FROM timeCardDummy"
         var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
+        var index = 0
         
         while(_rows != nil && _rows.next()){
-            var date = _rows.stringForColumn("date")
-            var start = _rows.stringForColumn("starttime")
-            var end = _rows.stringForColumn("endtime")
-            println(date + " " + start + " ~ " + end)
-            if date == today {
-                array[0] = start
-                array[1] = end
-            }
+            dateArray[index][0] = _rows.stringForColumn("date")
+            dateArray[index][1] = _rows.stringForColumn("starttime")
+            dateArray[index][2] = _rows.stringForColumn("endtime")
         }
         
         _db.close()
-        return array
+        return dateArray
     }
-
+    
     func getSelectDayInfo(selectDate: String)->[String] {
         var array = [selectDate, "--:--:--", "--:--:--"]
         if(!isReadyFile()){
