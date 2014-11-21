@@ -82,11 +82,9 @@ class WorkTimeFileManager {
     }
     
     func loadTime(today: String)->[[String]] {
-        var dateArray = [["","",""]]
-        
         if(!isReadyFile()){
             //ファイルがない場合
-            return dateArray
+            return [["", "", ""]]
         }
         
         let _db = FMDatabase(path: file_path)
@@ -94,8 +92,10 @@ class WorkTimeFileManager {
         let _sql_select = "SELECT * FROM timeCardDummy"
         var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
         var index = 0
-        
+        var dateArray:[[String]] = []
+
         while(_rows != nil && _rows.next()){
+            dateArray.append(["", "", ""])
             dateArray[index][0] = _rows.stringForColumn("date")
             dateArray[index][1] = _rows.stringForColumn("starttime")
             dateArray[index][2] = _rows.stringForColumn("endtime")

@@ -25,10 +25,8 @@ class ShowTimeViewController: UITableViewController, UITableViewDataSource, UITa
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Value2 , reuseIdentifier: "Cell")
 
-        for(var i = 0; i < texts.count; i++) {
-            cell.textLabel.text = texts[i][0]
-            cell.detailTextLabel?.text = texts[i][1] + " ~ " + texts[i][2];
-        }
+        cell.textLabel.text = texts[indexPath.row][0]
+        cell.detailTextLabel?.text = texts[indexPath.row][1] + " ~ " + texts[indexPath.row][2];
         return cell
     }
     
