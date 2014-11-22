@@ -70,21 +70,11 @@
                                     <segue destination="Xoe-Xc-raC" kind="show" identifier="startTime" id="9JM-QJ-KNf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Js-0p-PyK">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wlM-6y-hcZ" kind="show" identifier="showTable" id="r2i-71-mAy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ofR-4w-hyP" secondAttribute="bottom" constant="115" id="0qf-Wy-Fh9"/>
                             <constraint firstAttribute="centerX" secondItem="yh4-QP-fFA" secondAttribute="centerX" id="1lX-Ob-hx8"/>
-                            <constraint firstAttribute="centerX" secondItem="8Js-0p-PyK" secondAttribute="centerX" id="2vF-ri-s4K"/>
                             <constraint firstAttribute="centerX" secondItem="yCU-TF-8RT" secondAttribute="centerX" constant="-100" id="4lN-7b-jvh"/>
                             <constraint firstItem="jo1-5i-heY" firstAttribute="top" secondItem="WLP-Mk-qkf" secondAttribute="bottom" constant="7.5" id="ELo-a6-0If"/>
                             <constraint firstAttribute="centerX" secondItem="3ah-Wv-HMc" secondAttribute="centerX" constant="-100" id="JAq-Vs-J7L"/>
@@ -94,7 +84,6 @@
                             <constraint firstItem="yCU-TF-8RT" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="W5I-Vq-QCe"/>
                             <constraint firstAttribute="centerX" secondItem="7KS-Ny-kcm" secondAttribute="centerX" constant="-60" id="XiG-5b-PBi"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="yh4-QP-fFA" secondAttribute="bottom" constant="23" id="g05-Ds-r3L"/>
-                            <constraint firstAttribute="centerY" secondItem="8Js-0p-PyK" secondAttribute="centerY" id="hy6-cT-k83"/>
                             <constraint firstAttribute="centerX" secondItem="ofR-4w-hyP" secondAttribute="centerX" constant="60" id="kM2-8U-0VA"/>
                             <constraint firstItem="WLP-Mk-qkf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="127" id="kbA-pa-Dh9"/>
                             <constraint firstItem="3ah-Wv-HMc" firstAttribute="top" secondItem="yCU-TF-8RT" secondAttribute="bottom" constant="7.5" id="rHb-m2-ENV"/>
@@ -102,7 +91,13 @@
                             <constraint firstAttribute="centerX" secondItem="jo1-5i-heY" secondAttribute="centerX" constant="100" id="xfc-6t-Gqg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="t56-ma-Ylh"/>
+                    <navigationItem key="navigationItem" id="t56-ma-Ylh">
+                        <barButtonItem key="rightBarButtonItem" title="一覧" id="aS6-wg-hff">
+                            <connections>
+                                <segue destination="wlM-6y-hcZ" kind="show" identifier="showTable" id="Uxu-MD-6sm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="yh4-QP-fFA" id="ede-QX-dDC"/>
                         <outlet property="finishTime" destination="yCU-TF-8RT" id="QhF-Yb-dTs"/>
