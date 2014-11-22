@@ -10,7 +10,7 @@ import Foundation
 
 class WorkTimeFileManager {
     var file_path:String = ""
-    let file_name:NSString = "dummy5.db"
+    let file_name:NSString = "timeCard.db"
     let fileManager:NSFileManager = NSFileManager.defaultManager()
     
     init() {
@@ -28,7 +28,7 @@ class WorkTimeFileManager {
             //ファイルがない場合はDBファイル作成
             println("create new table")
             let _db = FMDatabase(path: file_path)
-            let _sql = "CREATE TABLE IF NOT EXISTS timeCardDummy (id INTEGER PRIMARY KEY AUTOINCREMENT,date TEXT, starttime TEXT, endtime, TEXT);"
+            let _sql = "CREATE TABLE IF NOT EXISTS timeCard (id INTEGER PRIMARY KEY AUTOINCREMENT,date Date, starttime Time, endtime, Time);"
             
             _db.open()
             
@@ -49,19 +49,19 @@ class WorkTimeFileManager {
             let _db = FMDatabase(path: file_path)
             
             _db.open()
-            let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
+            let _sql_select = "SELECT * FROM timeCard WHERE date = ?"
             var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [date])
             
             if (_rows != nil && _rows.next()) {
                 var _sql_update = ""
                 if (isStart) {
-                    _sql_update = "UPDATE timeCardDummy SET starttime = :TIME WHERE date = :DATE;"
+                    _sql_update = "UPDATE timeCard SET starttime = :TIME WHERE date = :DATE;"
                 } else {
-                    _sql_update = "UPDATE timeCardDummy SET endtime = :TIME WHERE date = :DATE;"
+                    _sql_update = "UPDATE timeCard SET endtime = :TIME WHERE date = :DATE;"
                 }
                 _db.executeUpdate(_sql_update, withParameterDictionary: ["TIME":time, "DATE": date])
             } else {
-                let _sql_insert = "insert into timeCardDummy (date, starttime, endtime) values (:DATE, :START, :END);"
+                let _sql_insert = "insert into timeCard (date, starttime, endtime) values (:DATE, :START, :END);"
                 var start:String = "--:--:--"
                 var end:String = "--:--:--"
                 if (isStart) {
@@ -89,7 +89,7 @@ class WorkTimeFileManager {
         
         let _db = FMDatabase(path: file_path)
         _db.open()
-        let _sql_select = "SELECT * FROM timeCardDummy"
+        let _sql_select = "SELECT * FROM timeCard"
         var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [])
         var index = 0
         var dateArray:[[String]] = []
@@ -115,7 +115,7 @@ class WorkTimeFileManager {
         
         let _db = FMDatabase(path: file_path)
         _db.open()
-        let _sql_select = "SELECT * FROM timeCardDummy WHERE date = ?"
+        let _sql_select = "SELECT * FROM timeCard WHERE date = ?"
         var _rows = _db.executeQuery(_sql_select, withArgumentsInArray: [selectDate])
         
         if(_rows != nil && _rows.next()){
